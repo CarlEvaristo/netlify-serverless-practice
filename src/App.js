@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <h1>Ron Swanson Quote Generator</h1>
       <button onClick={getQoute}>Get Quote</button>
-      <p>Quote: {quote.data[0]}</p>
+      <p>Quote: {quote.data}</p>
     </div>
   );
 }
