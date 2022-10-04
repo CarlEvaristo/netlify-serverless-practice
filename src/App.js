@@ -7,14 +7,14 @@ function App() {
 
   function getQoute() {
     axios.get(URL)
-      .then(res => setQuote(res))
+      .then(res => console.log(res))
   }
 
   return (
     <div className="App">
       <h1>Ron Swanson Quote Generator</h1>
       <button onClick={getQoute}>Get Quote</button>
-      <p>{quote}</p>
+      <p>Quote: {quote}</p>
     </div>
   );
 }
