@@ -6,7 +6,7 @@ function App() {
   const URL = "https://ron-swanson-quotes.herokuapp.com/V2/QUOTES"
 
   function getQoute() {
-    axios(URL)
+    axios.get(URL)
       .then(res => setQuote(res))
   }
 
