@@ -4,7 +4,7 @@ import axios from "axios"
 function App() {
   const [quote, setQuote] = React.useState("")
   const [greeting, setGreeting] = React.useState("")
-  const [time, setTime] = React.useState("")
+  const [db, setDb] = React.useState("")
 
   // function getQoute() {
   //   axios.get("https://ron-swanson-quotes.herokuapp.com/V2/QUOTES")
@@ -18,29 +18,33 @@ function App() {
     .catch(err => console.log("ERROR: ", err))
   }
 
-  function getGreeting(event){
+  function getGreeting(){
     fetch("/api/hello")
       .then(res => res.json())
       .then(res => setGreeting(res))
       .catch(err => console.log("ERROR: ", err))
   }
 
-  React.useEffect(()=>{
-    fetch("/api/time")
+  function getDB(){
+    fetch("/api/mongo")
       .then(res => res.json())
-      .then(res => setTime(res))
+      .then(res => setDb(res))
       .catch(err => console.log("ERROR: ", err))
-  },[])
+  }
 
 
   return (
     <div className="App">
       <h1>Ron Swanson Quote Generator</h1>
-      <h2>{time}</h2>
+
       <button onClick={getQuoteThroughServer}>Get Quote</button>
       <p>Quote: {quote}</p>
+
       <button onClick={getGreeting}>Get Greeting</button>
       <p>Say: {greeting}</p>
+
+      <button onClick={getDB}>Get DB</button>
+      <p>DB: {db}</p>
     </div>
   );
 }
