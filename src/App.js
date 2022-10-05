@@ -3,17 +3,17 @@ import axios from "axios"
 
 function App() {
   const [quote, setQuote] = React.useState("")
-  const URL = "https://ron-swanson-quotes.herokuapp.com/V2/QUOTES"
+  const [greeting, setGreeting] = React.useState("")
 
   function getQoute() {
-    axios.get(URL)
+    axios.get("https://ron-swanson-quotes.herokuapp.com/V2/QUOTES")
       .then(res => setQuote(res))
   }
 
-  function getHello(event){
+  function getGreeting(event){
     fetch(".netlify/functions/hello")
       .then(res => res.json())
-      .then(res => setQuote(res))
+      .then(res => setGreeting(res))
       .catch(err => console.log("ERROR: ", err))
   }
 
@@ -22,8 +22,8 @@ function App() {
       <h1>Ron Swanson Quote Generator</h1>
       <button onClick={getQoute}>Get Quote</button>
       <p>Quote: {quote.data}</p>
-      <button onClick={getHello}>Say Hello</button>
-      <p>Say: {quote}</p>
+      <button onClick={getGreeting}>Get Greeting</button>
+      <p>Say: {greeting}</p>
     </div>
   );
 }
