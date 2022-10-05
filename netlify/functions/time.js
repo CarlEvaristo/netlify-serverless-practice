@@ -1,9 +1,9 @@
 exports.handler = function(event, context, callback) {
     const date = new Date()
-    const year = date.getFullYear()
+    const fullDate = date.getDate()
     callback(null, {
         statusCode:200,
-        body: JSON.stringify(year)
+        body: JSON.stringify(fullDate)
     })
 }
 
