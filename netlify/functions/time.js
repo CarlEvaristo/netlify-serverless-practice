@@ -3,6 +3,8 @@ exports.handler = function(event, context, callback) {
     const time = date.getTime()
     callback(null, {
         statCode:200,
-        body: JSON.stringify(time)
+        body: JSON.stringify("Hello World")
     })
 }
+
+
