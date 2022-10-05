@@ -21,7 +21,7 @@ function App() {
   React.useEffect(()=>{
     fetch("/api/time")
       .then(res => res.json())
-      .then(res => setTime(res))
+      .then(res => console.log("TIME: ", res))
       .catch(err => console.log("ERROR: ", err))
   },[])
 
