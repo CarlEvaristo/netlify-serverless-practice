@@ -11,7 +11,7 @@ function App() {
   }
 
   function getGreeting(event){
-    fetch(".netlify/functions/hello")
+    fetch("api/hello")
       .then(res => res.json())
       .then(res => setGreeting(res))
       .catch(err => console.log("ERROR: ", err))
