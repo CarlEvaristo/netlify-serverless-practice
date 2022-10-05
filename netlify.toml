@@ -7,8 +7,8 @@
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   [[redirects]]
-  from = "api/*"
-  to = ".netlify/functions/:splat"
+  from = "api/hello"
+  to = ".netlify/functions/hello"
   status = 200
 
   ## (optional) Settings for Netlify Dev
