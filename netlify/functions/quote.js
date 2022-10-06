@@ -1,6 +1,6 @@
 import axios from "axios"
 
-exports.handler = function(event, context, callback) {
+export const handler = function(event, context, callback) {
     axios.get("https://ron-swanson-quotes.herokuapp.com/V2/QUOTES")
         .then(res =>  callback(null,{
             statusCode: 200,

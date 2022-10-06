@@ -18,6 +18,12 @@ function App() {
       .catch(err => console.log("ERROR: ", err))
   }
 
+  React.useEffect(()=>{
+    fetch("/api/esmmongo")
+      .then(res => res.json())
+      .then(res => console.log("RES: ", res))
+  },[])
+
   return (
     <div className="App">
       <h1>Ron Swanson Quote Generator</h1>
