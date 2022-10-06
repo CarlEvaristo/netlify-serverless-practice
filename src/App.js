@@ -1,41 +1,22 @@
 import React from 'react';
+import { Route, Routes } from "react-router-dom"
+import Listing from './pages/Listing.js';
+import Mongo from './pages/Mongo.js';
+import Header from './components/Header.js';
+import Detail from './pages/Detail.js';
 
 function App() {
-  const [quote, setQuote] = React.useState("")
-  const [greeting, setGreeting] = React.useState("")
-  
-  function getQuoteThroughServer() {
-    fetch("/api/quote")
-    .then(res => res.json())
-    .then(res => setQuote(res))
-    .catch(err => console.log("ERROR: ", err))
-  }
+  return(
+    <>
+      <Header />
 
-  function getGreeting(){
-    fetch("/api/hello")
-      .then(res => res.json())
-      .then(res => setGreeting(res))
-      .catch(err => console.log("ERROR: ", err))
-  }
-
-  React.useEffect(()=>{
-    fetch("/api/esmmongo")
-      .then(res => res.json())
-      .then(res => console.log("RES: ", res))
-  },[])
-
-  return (
-    <div className="App">
-      <h1>Ron Swanson Quote Generator</h1>
-
-      <button onClick={getQuoteThroughServer}>Get Quote</button>
-      <p>Quote: {quote}</p>
-
-      <button onClick={getGreeting}>Get Greeting</button>
-      <p>Say: {greeting}</p>
-
-    </div>
-  );
+      <Routes>
+        <Route path="/" element={<Listing />} />
+        <Route path="/rooms/:id" element={<Detail />} />
+        <Route path="/mongo" element={<Mongo />} />
+      </Routes>
+    </>
+  )
 }
 
 export default App;

@@ -1,0 +1,31 @@
+.item{
+    width: 100%;
+}
+.itemCaroussel {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: red;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.itemCaroussel img {
+    width:100%;
+    object-fit: cover;
+    object-position: center bottom;
+    overflow: hidden;
+}
+.itemData{
+    width:100%;
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 10px;
+    grid-template-rows: repeat(4, 1fr);
+}
+.itemData p {
+    grid-column: 1;
+    margin:0.2em;
+}
+.itemBold {
+    font-weight: 700;
+}

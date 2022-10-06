@@ -7,7 +7,7 @@ export const handler = async (event) => {
     try {
         const database = (await connection).db(process.env.REACT_APP_MONGODB_DATABASE);
         const collection = database.collection(process.env.REACT_APP_MONGODB_COLLECTION);
-        const results = await collection.find({}).limit(10).toArray();
+        const results = await collection.find({}).limit(50).toArray();
         // const results = await collection.insertOne( { item: "card", qty: 15 } );
         return {
             statusCode: 200,

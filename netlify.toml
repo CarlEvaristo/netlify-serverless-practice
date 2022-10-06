@@ -8,6 +8,12 @@ node_bundler = "esbuild"
 
 ## Uncomment to use this redirect for Single Page Applications like create-react-app.
 ## Not needed for static site generators.
+# [[redirects]]
+# from = "/api/home"
+# to = "/.netlify/functions/home"
+# status = 200
+
+## Example with wildcard
 [[redirects]]
 from = "/api/*"
 to = "/.netlify/functions/:splat"
