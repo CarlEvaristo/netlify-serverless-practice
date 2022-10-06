@@ -36,16 +36,18 @@ export default function Item({props}) {
 
     return (
         <div className='item'>
+        <Link to={`/rooms/${props._id}`} target="_blank">
             <div className='itemCaroussel'>
                 <img src={props.images.picture_url} alt={props.name} />
             </div>
             <div className='itemData'>
-                <p className='itemBold'>{props.name}</p>
-                <p>{props.address.market}, {props.address.country}</p>
+                <p className='bold'>{props.address.market}, {props.address.country}</p>
+                <p>{props.name.length > 25 ? (props.name).slice(0,25)+"..." : props.name}</p>
                 <p>Distance: {distance.toFixed(2)} km</p>
-                <p><span className='itemBold'>$ {props.price.$numberDecimal}</span> night</p>
-                <Link to={`/rooms/${props._id}`}>GO TO Detail PAGE</Link>
+                <p><span className='bold'>$ {props.price.$numberDecimal}</span> night</p>
+                {props.review_scores.review_scores_rating && <span className='itemRating'><i className="fa-sharp fa-solid fa-star"></i>  {props.review_scores.review_scores_rating/20}</span>}
             </div>
+        </Link>
         </div>
     )
 }

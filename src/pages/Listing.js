@@ -1,6 +1,7 @@
 import React from 'react'
 import Item from '../components/Item.js'
 import "./Listing.css"
+import Header from '../components/Header.js'
 
 export default function Listing() {
   const [list, setList] = React.useState([])
@@ -14,11 +15,10 @@ export default function Listing() {
   const listElements = list.map(item => <Item props={item} key={item._id}/> )
 
   return (
-    <div className='container mainContainer'>
-      <h1>Listing</h1>
-      <div className='listing'>
-        {listElements}
-      </div>
-    </div>
+      <section className='topSection'>
+        <div className='listing'>
+          {listElements}
+        </div>
+      </section>
   )
 }

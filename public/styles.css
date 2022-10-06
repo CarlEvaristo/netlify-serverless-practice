@@ -19,10 +19,23 @@ a{
     color:#000;
     text-decoration: none;
 }
-.container {
-    width:1200px;
+section {
+    width:1300px;
 }
-@media (max-width:1200px) {
+.topSection {
+    padding-top: 100px;
+}
+
+/* UTILITY CLASSES */
+.bold {
+    font-weight: 700;
+}
+.underline {
+    text-decoration: underline;
+}
+
+
+@media (max-width:1300px) {
     .container {
         width:95%;
     }
