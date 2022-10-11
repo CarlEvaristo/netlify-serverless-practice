@@ -19,10 +19,10 @@ node_bundler = "esbuild"
     to = "/index.html"
     status = 200
 
-[[redirects]]
-    from = "/api/*"
-    to = "/.netlify/functions/:splat"
-    status = 200
+# [[redirects]]
+#     from = "/api/*"
+#     to = "/.netlify/functions/:splat"
+#     status = 200
 
 
 ## (optional) Settings for Netlify Dev
