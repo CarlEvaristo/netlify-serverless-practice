@@ -14,10 +14,10 @@ node_bundler = "esbuild"
 # status = 200
 
 ## Examples with wildcard
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+# [[redirects]]
+# from = "/*"
+# to = "/index.html"
+# status = 200
 
 [[redirects]]
 from = "/api/*"
