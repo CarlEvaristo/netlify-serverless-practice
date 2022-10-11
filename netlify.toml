@@ -14,15 +14,15 @@ node_bundler = "esbuild"
 # status = 200
 
 ## Examples with wildcard
-[[redirects]]
-    from = "/*"
-    to = "/index.html"
-    status = 200
-
 # [[redirects]]
-#     from = "/api/*"
-#     to = "/.netlify/functions/:splat"
+#     from = "/*"
+#     to = "/index.html"
 #     status = 200
+
+[[redirects]]
+    from = "/api/*"
+    to = "/.netlify/functions/:splat"
+    status = 200
 
 
 ## (optional) Settings for Netlify Dev
