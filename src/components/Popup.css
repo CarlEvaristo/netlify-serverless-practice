@@ -1,0 +1,71 @@
+@keyframes overlayFadeOut {
+    from {opacity: 1;}
+    to {opacity: 0}
+}
+.overlayClosed {
+    opacity: 0;
+    display:none;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background: rgba(0, 0, 0, 0.504);
+    z-index:1000;
+    scroll-behavior: contain;
+    animation-name: overlayFadeOut;
+    animation-duration: 0.5s;
+}
+@keyframes overlayFadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.overlay {
+    opacity: 1;
+    display:inline;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background: rgba(0, 0, 0, 0.504);
+    z-index:1000;
+    scroll-behavior: contain;
+    animation-name: overlayFadeIn;
+    animation-duration: 0.5s;
+}
+@keyframes containerMove {
+    from {transform: translateY(100%);opacity: 0;}
+    to {transform: translateY(0);opacity: 1;}
+}
+.container {
+    z-index:2000;
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    max-height: 1000px;
+    margin: 30px auto;
+    overflow:hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.551);
+    animation-name: containerMove;
+    animation-duration: 0.5s;
+}
+
+.modalHeader{
+    background-color: rgb(255, 104, 104);
+    width:100%;
+    height:80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+}
+.modalClose{
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding:1em;
+    cursor: pointer;
+}

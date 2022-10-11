@@ -3,11 +3,16 @@ import { useParams } from 'react-router-dom'
 import Header from '../components/Header.js'
 import SubHeader from '../components/SubHeader.js'
 import "./Detail.css"
-
+import Popup from '../components/Popup.js'
 
 export default function Detail(props) {
     const id = useParams().id
     const [data, setData] = React.useState(null)
+    const [showPopup, setShowPopup] = React.useState(false)
+
+    function handlePopupClick() {
+        setShowPopup(showPopup => !showPopup)
+    }
 
     React.useEffect(()=>{
         fetch("/api/detail",
@@ -21,24 +26,25 @@ export default function Detail(props) {
         })
             .then(response => response.json())
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setData(res)
             })
     },[])
 
 
     return (
+        <>
+        showPopup && <Popup handlePopupClick={handlePopupClick} showPopup={showPopup} />
         <div className='detail'>  
             <section className='topSection'>
                 <h1>{data && data.name}</h1>    
                 <div className="subTitle bold">
-                    {data && data.review_scores && data.review_scores.review_scores_rating ? 
-                    <p><i className="fa-sharp fa-solid fa-star"></i>&nbsp;  {data.review_scores.review_scores_rating/20}</p> :
-                    <p><i className="fa-regular fa-star"></i>&nbsp;  Not Available</p>}
-                    <p> · </p> 
-                    {data && data.reviews && 
-                    <p className="underline">{data.reviews.length} review{data.reviews.length !== 1 && "s"}</p>}
-                    <p> · </p> 
+                    {data && data.review_scores && data.review_scores.review_scores_rating && 
+                    <p><i className="fa-sharp fa-solid fa-star"></i>&nbsp;  {data.review_scores.review_scores_rating/20} · </p> }
+                    {data && data.reviews && <>
+                    <p className="underline pointer" onClick={handlePopupClick}>{data.reviews.length} review{data.reviews.length !== 1 && "s"}</p>
+                    <p> · </p>
+                    </> }
                     <p className="underline">{data && data.address.street}</p>
                 </div>
                 <div className="detailImage">
@@ -61,5 +67,6 @@ export default function Detail(props) {
             </section>
 
         </div>
+        </>
     )
 }
