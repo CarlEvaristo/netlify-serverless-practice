@@ -13,11 +13,11 @@ node_bundler = "esbuild"
 # to = "/.netlify/functions/home"
 # status = 200
 
-## Examples with wildcard
-[[redirects]]
-    from = "/*"
-    to = "/index.html"
-    status = 200
+# ## Examples with wildcard
+# [[redirects]]
+#     from = "/*"
+#     to = "/index.html"
+#     status = 200
 
 [[redirects]]
     from = "/api/*"
